@@ -9,16 +9,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
 </head>
-
+<!-- 
+  Ajouter un header
+  Ajouter Data error
+  Faire un W3C HTML CSS  
+  CSS responsive
+  Ajouter un addEventListener (submit){
+    Faire un Regex JS et le vérifer
+    Avoir un minimun de caratère (2)
+  }
+-->
 <body>
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" />
+      <img alt="logo" src="Logo.png" class="logo"/>
     </div>
     <div class="main-navbar">
 
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
+      
+      <a href="#" class="active"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
@@ -27,7 +36,7 @@
       </a>
     </div>
   </div>
-  </div>
+  
   <main>
     <div class="hero-section">
       <div class="hero-content">
@@ -40,14 +49,14 @@
           aux réservations... Places limitées !
         </p>
         <button class="btn-signup modal-btn">
-          je m'inscris
+          inscription
         </button>
       </div>
       <div class="hero-img">
         <img src="./bg_img.jpg" alt="img" />
       </div>
       <button class="btn-signup modal-btn">
-        je m'inscris
+        inscription
       </button>
     </div>
 
@@ -56,7 +65,7 @@
         <span class="close"></span>
         <div class="modal-body">
           <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
-            <div class="formData">
+            <div class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du prénom.">
               <label>Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
             </div>
@@ -105,8 +114,8 @@
             </div>
 
             <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
-              <label class="checkbox2-label" for="checkbox1" required>
+              <input class="checkbox-input" type="checkbox" id="checkbox1" checked required/>
+              <label class="checkbox2-label" for="checkbox1" >
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
@@ -118,7 +127,7 @@
               </label>
               <br>
             </div>
-            <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+            <input class="btn-submit button" type="submit" value="C'est parti" />
           </form>
         </div>
       </div>
