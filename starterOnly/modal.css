@@ -32,30 +32,54 @@ img {
   padding-right: 1rem;
 }
 
+.Thx-submit{ 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 590px;
+}
 
+.Thx-submit-message{
+  flex-grow: 1;
+  width: 300px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+#ErrorCondition, #ErrorEmail, #ErrorNom, #ErrorPrenom{
+  font-size: 13px;
+    color: red;
+}
 .topnav {
   overflow: hidden;
   margin: 3.5%;
 }
+
 .main-navbar {
   float: right;
 }
+
 @media screen and (max-width: 800px) {
   .topnav {
     margin: 8.5%;
   }
-  .logo{
+
+  .logo {
     height: 20px;
   }
-  main{
+
+  main {
     text-align: none;
   }
+
   .main-navbar {
     float: left;
   }
+
   img {
     padding-right: 11.3rem;
-}
+  }
 }
 
 .header-logo {
@@ -73,7 +97,7 @@ img {
   margin: 5px;
   text-decoration: none;
   font-size: 20px;
-  
+
 }
 
 .topnav a:hover {
@@ -86,7 +110,7 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
-  text-decoration: underline;  
+  text-decoration: underline;
 }
 
 .topnav .icon {
@@ -597,7 +621,8 @@ footer {
     margin-top: 0px;
     text-align: center;
   }
-  .content{
+
+  .content {
     margin: 20% auto;
     height: 100%;
   }
