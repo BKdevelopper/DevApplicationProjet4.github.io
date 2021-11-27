@@ -47,10 +47,7 @@ img {
   align-items: center;
   text-align: center;
 }
-#ErrorCondition, #ErrorEmail, #ErrorNom, #ErrorPrenom{
-  font-size: 13px;
-    color: red;
-}
+
 .topnav {
   overflow: hidden;
   margin: 3.5%;
@@ -74,7 +71,7 @@ img {
   }
 
   .main-navbar {
-    float: left;
+    float: right;
   }
 
   img {
@@ -84,6 +81,7 @@ img {
 
 .header-logo {
   float: left;
+  width: 50px;
 }
 
 
@@ -278,7 +276,7 @@ input {
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  text-align: right;
+  text-align: left;
   line-height: 0.3;
   opacity: 0;
   transition: 0.3s;

@@ -13,98 +13,96 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const close = document.querySelectorAll(".fermer");
 const form = document.forms["reserve"];
-
 const thx = document.getElementById("Thx-submit");
+const cleardata = document.querySelectorAll(".cleardata");
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 close.forEach((btn) => btn.addEventListener("click", launchModale));
-
+cleardata.forEach((btn) => btn.addEventListener("click", clear));
 // launch modal form
+
+function clear(){
+  form.style.display = 'block';
+  thx.style.display = 'none'; 
+  document.getElementById('dataForm').reset();
+}
 function launchModal() {
   modalbg.style.display = "block";
+  
 }
 
 function launchModale() {
   modalbg.style.display = "none";
+  
 }
 
 let FormVerificationName = /^[a-z ,.'-]+$/i;
-
 let divprenom = document.getElementById('ErrorPrenom');
 let prenom = document.getElementById("first");
-let erreurfirstname = divprenom.getAttribute('data-error');
-
 let nom = document.getElementById("last");
 let divnom = document.getElementById('ErrorNom');
-let erreurlastname = divnom.getAttribute('data-error');
-
 let FormVerificationEmail = /.+@.+\..+/;
 let email = document.getElementById("email");
 let divemail = document.getElementById("ErrorEmail");
-let erreuremail = divemail.getAttribute('data-error');
-
 let divcondition = document.getElementById("ErrorCondition");
-let erreurcondition = divcondition.getAttribute('data-error');
-// let number = document.getElementById("quantity");
-// let divnumber = document.getElementById('ErrorNumber');
-// let erreurnumber = divemail.getAttribute('data-error');
 
-// const checkList = form.querySelectorAll('input[name="location"]');
-// let date = document.getElementById("birthdate");
-// let quantity = document.getElementById("quantity");
+const conditiongeneral = form.querySelectorAll('input[name="perm"]')[0];
+//  Affichage des erreurs
+function FormVerificationTextError(e) {
+  e.dataset.errorVisible = 'true';
+}
 
-// let FormVerificationNom = /[a-zA-Z]/;
-// /^[a-z ,.'-]+$/i
-// european convention 
- 
+function FormVerificationTextCorrect(e) {
+  e.dataset.errorVisible = 'false';
+}
 
+// Verification du formulaire
 function FormVerification() {
-
+  //Verification des regex
   if (!FormVerificationName.test(prenom.value.trim())) {
-    divprenom.textContent += erreurfirstname;
+    FormVerificationTextError(divprenom)
     return false;
-  } 
-  else{
-    divprenom.textContent = "";
+  } else {
+    FormVerificationTextCorrect(divprenom)
   }
 
   if (!FormVerificationName.test(nom.value.trim())) {
-    divnom.textContent += erreurlastname;
+    FormVerificationTextError(divnom)
     return false;
-  }
-  else{
-    divnom.textContent = "";
+  } else {
+    FormVerificationTextCorrect(divnom)
   }
 
   if (!FormVerificationEmail.test(email.value.trim())) {
-    divemail.textContent += erreuremail;
-    return false;
-  }
-  else{
-    divemail.textContent = "";
-  }
-
-  const perm = form.querySelectorAll('input[name="perm"]')[0];
-  if (!perm.checked) {
-    divcondition.textContent += erreurcondition;
+    FormVerificationTextError(divemail)
     return false;
   } else {
-    divcondition.textContent = "";
+    FormVerificationTextCorrect(divemail)
   }
-  
+  //Verification qu'une case est coché
+  if (!conditiongeneral.checked) {
+    FormVerificationTextError(divcondition)
+    return false;
+  } else {
+    FormVerificationTextCorrect(divcondition)
+  }
+ 
   return true
+  
 }
 
-
-form.addEventListener("submit", 
+//
+form.addEventListener("submit",
   (e) => {
     e.preventDefault();
-   // let Errors = 0;
-    if(FormVerification()){
+    if (FormVerification()) {
+      
       form.style.display = 'none';
-      thx.style.display = 'flex';
+      thx.style.display = 'flex';     
+      
+    }else{
+      return false
     }
-  // console.log(FormVerification())
+   
+    return true
   })
-
-  

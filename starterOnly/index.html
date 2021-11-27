@@ -3,22 +3,13 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Reservationn</title>
+  <title>Reservation</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="modal.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
 </head>
-<!-- 
-  Ajouter un header
-  Ajouter Data error
-  Faire un W3C HTML CSS  
-  CSS responsive
-  Ajouter un addEventListener (submit){
-    Faire un Regex JS et le vérifer
-    Avoir un minimun de caratère (2)
-  }
--->
+
 
 <body>
   <div class="topnav" id="myTopnav">
@@ -65,21 +56,21 @@
       <div class="content">
         <span class="close fermer"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
-            <div class="formData">
+          <form name="reserve" id="dataForm" action="index.html" method="get" >
+            <div class="formData" id="ErrorPrenom" data-error="Veuillez entrées au moin 2 caractères ou plus (sans chiffre) pour le champ du prénom." >
               <label>Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" minlength="2" required /><br>
-              <span id="ErrorPrenom" data-error="Veuillez entrées au moin 2 caractères ou plus (sans chiffre) pour le champ du prénom."></span>
+              
             </div>
-            <div class="formData" >
+            <div class="formData" id="ErrorNom" data-error="Veuillez entrées au moin 2 caractères ou plus (sans chiffre) pour le champ du nom." data-error-visible="false">
               <label>Nom</label><br>
               <input class="text-control" type="text" id="last" name="last" minlength="2" required/><br>
-              <span id="ErrorNom" data-error="Veuillez entrées au moin 2 caractères ou plus (sans chiffre) pour le champ du nom."></span>
+              
             </div>
-            <div class="formData" >
+            <div class="formData" id="ErrorEmail" data-error="Veuillez entrer une adresse email valide." data-error-visible="false">
               <label>E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email"  required/><br>
-              <span id="ErrorEmail" data-error="Veuillez entrer une adresse email valide."></span>
+              
             </div>
             <div class="formData">
               <label>Date de naissance</label><br>
@@ -92,7 +83,7 @@
               
             </div>
             <p class="text-label">Quelles villes ?</p>
-            <div class="formData" data-error="Vous devez choisir une ville">
+            <div class="formData" data-error="Vous devez choisir une ville" data-error-visible="false">
               <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" checked/>
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
@@ -125,7 +116,7 @@
                 
             </div>
 
-            <div class="formData" data-error="Vous devez accepter les conditions d'utilisation.">
+            <div class="formData" id="ErrorCondition" data-error="Veuillez accepté les conditions d'utilisation.">
               <input class="checkbox-input" type="checkbox" id="checkbox1" name="perm" />
               <label class="checkbox2-label" for="checkbox1" >
                 <span class="checkbox-icon"></span>
@@ -138,7 +129,7 @@
                 Je souhaite être prévenu des prochains évènements.
               </label>
               <br>
-              <span id="ErrorCondition" data-error="Veuillez accepté les conditions d'utilisation."></span>
+              
             </div>
             <input class="btn-submit button" type="submit" value="C'est parti" />
           </form>
@@ -147,7 +138,7 @@
               Merci !<br/>
               Votre réservation a bien été prise en compte.
             </div>
-            <button class="btn-submit button fermer"  type="button">Fermer</button>
+            <button class="btn-submit button fermer cleardata"  type="button">Fermer</button>
           </div>
         </div>
       </div>
